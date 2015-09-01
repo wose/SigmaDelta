@@ -1,0 +1,8 @@
+* SigmaDelta
+
+A Dashboard where all your realtime or recorded data is displayed and organized.
+The data streams are provided by plugins which connect to sensors (Arduino,...)
+or web services or databases or ...
+
+* Icons
+  - Entypo pictograms by Daniel Bruce — www.entypo.com
