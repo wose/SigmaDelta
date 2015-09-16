@@ -21,4 +21,12 @@ ApplicationWindow {
         anchors.fill: parent
         onClicked: Qt.quit()
     }
+
+    Button {
+        id: mainMenu
+        width: 16
+        height: 16
+
+        iconSource: "qrc:/images/menu.svg"
+    }
 }
