@@ -5,23 +5,21 @@ compiler:
 
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
-  - source /opt/qt55/bin/qt55-env.sh
   - echo ${CXX}
   - ${CXX} --version
+  - source /opt/qt54/bin/qt54-env.sh
 
 addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
-    - beineri-opt-qt55
+    - beineri-opt-qt541
     packages:
     - gcc-4.9
     - g++-4.9
-    - qt55base
+    - qt54base
     - lcov
     - curl
-#    - clang
-#    - valgrind
 
 before_script:
   - mkdir build
