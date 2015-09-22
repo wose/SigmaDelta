@@ -1,0 +1,35 @@
+language: cpp
+
+compiler:
+  - gcc
+
+install:
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
+  - source /opt/qt55/bin/qt55-env.sh
+  - echo ${CXX}
+  - ${CXX} --version
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    - beineri-opt-qt55
+    packages:
+    - gcc-4.9
+    - g++-4.9
+    - qt55base
+    - lcov
+    - curl
+#    - clang
+#    - valgrind
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+
+script: make && make test
+
+notifications:
+  email: false
+sudo: false
