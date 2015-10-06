@@ -7,7 +7,7 @@ install:
   - sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
     && sudo apt-add-repository -y ppa:beineri/opt-qt55
   - sudo apt-get -qq update
-  - sudo apt-get -qq install g++-4.9 qt55base qt55declarative qt55tools qt55svg lcov curl
+  - sudo apt-get -qq install g++-4.9 qt55base qt55quickcontrols qt55declarative qt55tools qt55svg lcov curl
   - export CXX="g++-4.9"
     && export CC="gcc-4.9"
   - source /opt/qt55/bin/qt55-env.sh
