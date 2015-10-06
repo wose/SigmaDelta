@@ -7,10 +7,12 @@ install:
   - sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
     && sudo apt-add-repository -y ppa:beineri/opt-qt55
   - sudo apt-get -qq update
-  - sudo apt-get -qq install g++-4.9 qt55base qt55declarative qt55tools qt55svg cmake lcov curl
+  - sudo apt-get -qq install g++-4.9 qt55base qt55declarative qt55tools qt55svg lcov curl
   - export CXX="g++-4.9"
     && export CC="gcc-4.9"
   - source /opt/qt55/bin/qt55-env.sh
+  - wget -qO- http://www.cmake.org/files/v3.1/cmake-3.1.0-Linux-x86_64.tar.gz | tar xvz
+  - sudo cp -fR cmake-3.1.0-Linux-x86_64/* /usr
 
 before_script:
   - mkdir build
