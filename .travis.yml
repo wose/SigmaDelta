@@ -3,6 +3,10 @@ language: cpp
 compiler:
   - gcc
 
+before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
 install:
   - sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
     && sudo apt-add-repository -y ppa:beineri/opt-qt55
