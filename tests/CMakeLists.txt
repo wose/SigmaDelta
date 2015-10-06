@@ -29,5 +29,4 @@ set_target_properties(libgtest PROPERTIES
 include_directories("${source_dir}/include")
 include_directories("${source_dir}/gtest/include")
 
-add_subdirectory(foo)
 add_subdirectory(qmltests)
