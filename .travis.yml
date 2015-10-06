@@ -4,30 +4,20 @@ compiler:
   - gcc
 
 install:
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
-  - echo ${CXX}
-  - ${CXX} --version
-  - source /opt/qt54/bin/qt54-env.sh
-
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    - beineri-opt-qt541
-    packages:
-    - gcc-4.9
-    - g++-4.9
-    - qt54base
-    - lcov
-    - curl
+  - sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
+    && sudo apt-add-repository -y ppa:beineri/opt-qt55
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install g++-4.9 qt55base qt55declarative qt55tools qt55svg cmake lcov curl
+  - export CXX="g++-4.9"
+    && export CC="gcc-4.9"
+  - source /opt/qt55/bin/qt55-env.sh
 
 before_script:
   - mkdir build
   - cd build
-  - cmake ..
+  - cmake -DCMAKE_BUILD_TYPE=debug -DCMAKE_PREFIX_PATH=/opt/qt55/lib/cmake ..
 
 script: make && make test
 
 notifications:
   email: false
-sudo: false
